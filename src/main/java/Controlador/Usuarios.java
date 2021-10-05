@@ -57,7 +57,7 @@ public class Usuarios extends HttpServlet {
 		
 		if(request.getParameter("botonConsultar")!=null) {
 			
-			int cedula=Integer.parseInt(request.getParameter("ceduUsuario"));
+			int cedula=Integer.parseInt(request.getParameter("codigo"));
 			TiendaDTO usu=usuDao.Buscar_usuario(cedula);
 			String usuario, nombre, contraseña, correo;
 			

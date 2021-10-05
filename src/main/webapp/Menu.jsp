@@ -12,7 +12,8 @@
 </head>
 
 <body onload="menutienda()">
-
+<%! String usuario="",nombre="",correo="",cedula="", contra=""; %>
+ 
  <div class="menu">
      <p data-target="#usuario">Usuario</p>
      <p data-target="#clientes">Clientes</p>
@@ -25,37 +26,60 @@
   <div class="content">
      
 
-      <div data-content id="usuario">
-
+    
+      
+     
+ 
+ 	 <div data-content id="usuario">
       <form action="Usuarios" method="post">
+       <% if(request.getParameter("ceduUsuario")!=null){
     	  
-    	 <p>Cedula: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          <input type="text" name="ceduUsuario" >
+    	  cedula=request.getParameter("ceduUsuario");
+    	  correo=request.getParameter("correoElectUsuario");
+    	  nombre=request.getParameter("nombrecompletoUsuario");
+    	  usuario=request.getParameter("usuar");
+    	  contra=request.getParameter("contrasUsuario");
+    	  
+      }
+  %>
+      
+    	  
+    	<p>Cedula: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
+          <input type="text" name="ceduUsuario" value="<%=cedula%>">
           
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
           
-          Usuario: &nbsp; &nbsp <input type="text" name="usuar" ></p>
+          Usuario: &nbsp; &nbsp <input type="text" name="usuar" value="<%=usuario%>"></p>
 
-          <p>Nombre completo: &nbsp <input type="text" name="nombrecompletoUsuario" >
+          <p>Nombre completo: &nbsp <input type="text" name="nombrecompletoUsuario" value="<%=nombre%>">
           
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          Contrase�a: <input type="text" name="contrasUsuario" ></p>
+          Contrase�a: <input type="text" name="contrasUsuario" value="<%=contra%>"></p>
 
-          <p>Correo Electronico: <input type="text" name="correoElectUsuario" ></p>
+          <p>Correo Electronico: <input type="text" name="correoElectUsuario" value="<%=correo%>"></p>
           
-          <input type="submit" name="botonConsultar"  >
+         
+          
+          <input type="submit" name="botonCrear" value="Crear">
           &nbsp; &nbsp
           
-          <input type="submit" name="botonCrear" >
-          &nbsp; &nbsp
           
-          
-          <input type="submit" name="botonActualizar" >
+          <input type="submit" name="botonActualizar" value="Actualizar">
           &nbsp; &nbsp
           
           <input type="reset" name="botonBorrar" value="Borrar">  
-      	
-   
+     </form>
+     <hr>
+       <form action="Usuarios" method="post">
+       <fieldset>
+       <legend>Consultar Usuario</legend>
+       <div><label>Cedula: </label> <input type="text" name="codigo" >
+        <input type="submit" name="botonConsultar" value="Consultar" >
+          &nbsp; &nbsp
+        </div></fieldset>
+        </form>
+       
+       
           
       </div>
 
