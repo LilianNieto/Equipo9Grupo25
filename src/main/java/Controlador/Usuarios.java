@@ -59,6 +59,8 @@ public class Usuarios extends HttpServlet {
 			
 			int cedula=Integer.parseInt(request.getParameter("codigo"));
 			TiendaDTO usu=usuDao.Buscar_usuario(cedula);
+			
+			if(usu!=null) {
 			String usuario, nombre, contraseña, correo;
 			
 		
@@ -69,6 +71,33 @@ public class Usuarios extends HttpServlet {
 			contraseña=usu.getContrasena();
 			response.sendRedirect("Menu.jsp?ceduUsuario="+cedula+"&&correoElectUsuario="+correo+"&&nombrecompletoUsuario="+nombre+"&&contrasUsuario="
 								+contraseña+"&&usuar="+usuario);
+			}else
+			{
+				JOptionPane.showMessageDialog(null, "El libro no existe");
+				response.sendRedirect("Menu.jsp");
+			}
+			
+		}
+		
+		if(request.getParameter("botonActualizar")!=null) {
+			String usuario, nombre, contraseña, correo;
+			int cedula;
+			
+			cedula =Integer.parseInt(request.getParameter("cod"));
+			usuario =request.getParameter("usuar");
+			nombre =request.getParameter("nombrecompletoUsuario");
+			contraseña =request.getParameter("contrasUsuario");
+			correo =request.getParameter("correoElectUsuario");
+			TiendaDTO usu= new TiendaDTO(cedula, usuario, nombre, contraseña, correo);
+			
+			if(usuDao.Actualizar_Usuario(usu)) {
+				JOptionPane.showMessageDialog(null, "Se Actualizo el Usuario exitosamente....");
+				response.sendRedirect("Menu.jsp");
+			}else {
+				JOptionPane.showMessageDialog(null, "NO Se Actualizo el Usuario");
+				response.sendRedirect("Menu.jsp");
+				
+			}
 			
 		}
 		

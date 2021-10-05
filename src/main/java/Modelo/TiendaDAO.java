@@ -60,6 +60,31 @@ public class TiendaDAO {
 			JOptionPane.showMessageDialog(null, "Error al Consultar"+ex);
 		}
 		return usu;
+		
+		
+	}
+	
+	public boolean Actualizar_Usuario(TiendaDTO usu) {
+		boolean resul=false;
+		try{
+			
+			String sql="update usuarios set email_usuario=?, nombre_usuario=?, password=?, usuario=? where cedula_usuario=?";
+			ps = conec.prepareStatement(sql);
+			
+			ps.setString(1, usu.getCorreo());
+			ps.setString(2, usu.getNombre());
+			ps.setString(3, usu.getContrasena());
+			ps.setString(4, usu.getUsuario());
+			ps.setInt(5, usu.getCedula());
+			
+			resul=ps.executeUpdate()>0;
+			
+		}catch(SQLException ex) {
+			
+			JOptionPane.showMessageDialog(null, "Error al actualizar usuario"+ex);
+			
+		}
+		return resul;
 	}
 
 }

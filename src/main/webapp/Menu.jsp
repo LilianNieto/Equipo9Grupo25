@@ -12,7 +12,7 @@
 </head>
 
 <body onload="menutienda()">
-<%! String usuario="",nombre="",correo="",cedula="", contra=""; %>
+<%! String usuario="",nombre="",correo="",cedula="", contra="", estado=""; %>
  
  <div class="menu">
      <p data-target="#usuario">Usuario</p>
@@ -39,24 +39,37 @@
     	  nombre=request.getParameter("nombrecompletoUsuario");
     	  usuario=request.getParameter("usuar");
     	  contra=request.getParameter("contrasUsuario");
+    	  estado="disabled";
     	  
       }
   %>
       
     	  
     	<p>Cedula: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          <input type="text" name="ceduUsuario" value="<%=cedula%>">
+          <input type="text" name="ceduUsuario" value="<%=cedula%>" <%=estado%> > 
+          <input type="hidden" name="cod" value="<%=cedula%>" >
           
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
           
-          Usuario: &nbsp; &nbsp <input type="text" name="usuar" value="<%=usuario%>"></p>
+          Usuario: &nbsp; &nbsp <input type="text" name="usuar" value="<%=usuario%>"><br/>
+          
+          </p>
 
-          <p>Nombre completo: &nbsp <input type="text" name="nombrecompletoUsuario" value="<%=nombre%>">
+          <p>
+          <br/>
+          Nombre completo: &nbsp <input type="text" name="nombrecompletoUsuario" value="<%=nombre%>">
           
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          Contrase�a: <input type="text" name="contrasUsuario" value="<%=contra%>"></p>
+          Contraseña: <input type="text" name="contrasUsuario" value="<%=contra%>">
+          <br/>
+          </p>
 
-          <p>Correo Electronico: <input type="text" name="correoElectUsuario" value="<%=correo%>"></p>
+          <p>
+          <br/>
+          Correo Electronico: <input type="text" name="correoElectUsuario" value="<%=correo%>">
+          <br/>
+          <br/>
+          </p>
           
          
           
@@ -68,15 +81,26 @@
           &nbsp; &nbsp
           
           <input type="reset" name="botonBorrar" value="Borrar">  
+          <br/>
+          <br/>
+          <br/>
+    
+    
      </form>
+     
      <hr>
        <form action="Usuarios" method="post">
        <fieldset>
-       <legend>Consultar Usuario</legend>
-       <div><label>Cedula: </label> <input type="text" name="codigo" >
+       <br/>
+       <legend> Consultar Usuario  </legend>
+       <div>
+       <label>Cedula: </label> <input type="text" name="codigo" >
         <input type="submit" name="botonConsultar" value="Consultar" >
           &nbsp; &nbsp
-        </div></fieldset>
+        <br/>
+        </div>
+        <br/>
+        </fieldset>
         </form>
        
        
