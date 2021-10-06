@@ -85,6 +85,26 @@ public class TiendaDAO {
 			
 		}
 		return resul;
+		
+	}
+		
+		public boolean Borrar_Usuario(int cedula) {
+			boolean resul=false;
+			try{
+				
+				String sql="delete from usuarios where cedula_usuario=?";
+				ps = conec.prepareStatement(sql);
+				
+				ps.setInt(1, cedula);
+				
+				resul=ps.executeUpdate()>0;
+				
+			}catch(SQLException ex) {
+				
+				JOptionPane.showMessageDialog(null, "Error al Borrar usuario"+ex);
+				
+			}
+			return resul;
 	}
 
 }

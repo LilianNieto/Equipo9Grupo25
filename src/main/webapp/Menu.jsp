@@ -26,10 +26,6 @@
   <div class="content">
      
 
-    
-      
-     
- 
  	 <div data-content id="usuario">
       <form action="Usuarios" method="post">
        <% if(request.getParameter("ceduUsuario")!=null){
@@ -51,7 +47,7 @@
           
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
           
-          Usuario: &nbsp; &nbsp <input type="text" name="usuar" value="<%=usuario%>"><br/>
+          Usuario: &nbsp; &nbsp; &nbsp <input type="text" name="usuar" value="<%=usuario%>"><br/>
           
           </p>
 
@@ -73,14 +69,14 @@
           
          
           
-          <input type="submit" name="botonCrear" value="Crear">
+          <input type="submit" name="botonCrear" value=" Crear ">
           &nbsp; &nbsp
           
           
-          <input type="submit" name="botonActualizar" value="Actualizar">
+          <input type="submit" name="botonActualizar" value=" Actualizar ">
           &nbsp; &nbsp
           
-          <input type="reset" name="botonBorrar" value="Borrar">  
+          <input type="submit" name="botonBorrar" value=" Borrar ">  
           <br/>
           <br/>
           <br/>
@@ -95,7 +91,7 @@
        <legend> Consultar Usuario  </legend>
        <div>
        <label>Cedula: </label> <input type="text" name="codigo" >
-        <input type="submit" name="botonConsultar" value="Consultar" >
+        <input type="submit" name="botonConsultar" value=" Consultar " >
           &nbsp; &nbsp
         <br/>
         </div>
@@ -125,7 +121,7 @@
           &nbsp; &nbsp
           <input type="submit" name="botonActualizar" value="Actualizar">
           &nbsp; &nbsp
-          <input type="reset" name="botonBorrar" value="Borrar">
+          <input type="submit" name="botonBorrar" value="Borrar">
       </div>
 
       <div data-content id="proveedores">

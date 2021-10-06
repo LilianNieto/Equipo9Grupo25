@@ -73,7 +73,7 @@ public class Usuarios extends HttpServlet {
 								+contraseña+"&&usuar="+usuario);
 			}else
 			{
-				JOptionPane.showMessageDialog(null, "El libro no existe");
+				JOptionPane.showMessageDialog(null, "El Usuario no existe");
 				response.sendRedirect("Menu.jsp");
 			}
 			
@@ -101,8 +101,30 @@ public class Usuarios extends HttpServlet {
 			
 		}
 		
-		
-		
+		if(request.getParameter("botonBorrar")!=null) {
+			
+			int cedula;
+			
+			cedula =Integer.parseInt(request.getParameter("cod"));
+			
+			int op=JOptionPane.showConfirmDialog(null, "Desea eliminar el usuario con Cedula: "+cedula);
+			if (op==0) {
+				if(usuDao.Borrar_Usuario(cedula)) {
+					JOptionPane.showMessageDialog(null, "Se Borro el Usuario exitosamente....");
+					response.sendRedirect("Menu.jsp?Usuario Eliminado");
+				}else {
+					JOptionPane.showMessageDialog(null, "NO Se Elimino el Usuario");
+					response.sendRedirect("Menu.jsp?men=El Usuario no se elimino");
+				
+				}
+			}else {
+				response.sendRedirect("Menu.jsp");
+			}
+		}
+			
 	}
-
+		
+		
 }
+
+
