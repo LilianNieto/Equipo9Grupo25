@@ -12,10 +12,12 @@
 </head>
 
 <body onload="menutienda()">
-<%! String usuario="",nombre="",correo="",cedula="", contra="", estado=""; %>
+
 
  <div class="menu">
+ <%! String usuario="",nombre="",correo="",cedula="", contra="", estado=""; %>
  <%! String nombrecliente="", correocliente="",telefonocliente="",direccioncliente="",cedulacliente="", estadocliente=""; %>
+ <%! String nit="", ciudadproveedor="", direccionproveedor="", nombreproveedor="", telefonoproveedor=""; %>
  
      <p data-target="#usuario">Usuario</p>
      <p data-target="#clientes">Clientes</p>
@@ -52,7 +54,7 @@
           Usuario: &nbsp; &nbsp; &nbsp <input type="text" name="usuar" value="<%=usuario%>" required><br/>
           
           </p>
-
+		
           <p>
           <br/>
           Nombre completo: &nbsp <input type="text" name="nombrecompletoUsuario" value="<%=nombre%>" required>
@@ -127,12 +129,12 @@
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
           Telefono: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp
           <input type="text" name="telefonCliente" value="<%=telefonocliente%>" required></p>
-
+			 <br/>
           <p>Nombre completo: &nbsp 
           <input type="text" name="nombrecompletoCliente" value="<%=nombrecliente%>" required>
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
           Correo Electronico: <input type="text" name="correoElectronCliente" value="<%=correocliente%>" required></p>
-
+			 <br/>
           <p>Direccion:&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp
           <input type="text" name="direccionCliente" value="<%=direccioncliente%>" required></p>
 
@@ -165,24 +167,47 @@
       </div>
 
       <div data-content id="proveedores">
+      
+       <form action="Proveedores" method="post">
+       <% if(request.getParameter("nitProveedor")!=null){
+    	  
+    	    nit =request.getParameter("nitProveedor");
+			ciudadproveedor=request.getParameter("ciudadProveedor");
+			direccionproveedor =request.getParameter("direccionProvedor");
+			nombreproveedor =request.getParameter("nombreProveedor");
+			telefonoproveedor =request.getParameter("telefonProveedor");
+    	  estado="disabled";
+    	  
+      }
+  %>
+  
           <p>NIT: &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          <input type="text" name="nitProveedor">
+          <input type="text" name="nitProveedor" value="<%=nit%>"  required>
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          Telefono: &nbsp<input type="text" name="telefonCliente"></p>
-
-          <p>Nombre Proveedor: &nbsp <input type="text" name="nombreProveedor">
+          Telefono: &nbsp<input type="text" name="telefonProveedor" value="<%=telefonoproveedor%>"></p>
+			<br/>
+          <p>Nombre Proveedor: &nbsp <input type="text" name="nombreProveedor" value="<%=nombreproveedor%>"  required>
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          Ciudad: &nbsp; &nbsp <input type="text" name="ciudadProveedor"></p>
-
-          <p>Direccion:&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp<input type="text" name="direccionProvedor"></p>
-
-          <input type="submit" name="botonConsultar" value="Consultar">
+          Ciudad: &nbsp; &nbsp <input type="text" name="ciudadProveedor" value="<%=ciudadproveedor%>"  required></p>
+			<br/>
+          <p>Direccion:&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp
+          <input type="text" name="direccionProvedor" value="<%=direccionproveedor%>"  required></p>
+         <br/>
+          <br/>
+          <input type="submit" name="botonConsultar" value=" Consultar ">
           &nbsp; &nbsp
-          <input type="submit" name="botonCrear" value="Crear">
+          <br/>
+           <br/>
+          <input type="submit" name="botonCrear" value=" Crear ">
           &nbsp; &nbsp
-          <input type="submit" name="botonActualizar" value="Actualizar">
+          <br/>
+           <br/>
+          <input type="submit" name="botonActualizar" value=" Actualizar ">
           &nbsp; &nbsp
-          <input type="reset" name="botonBorrar" value="Borrar">
+          <br/>
+           <br/>
+          <input type="submit" name="botonBorrar" value=" Borrar ">
+          <br/>
       </div>
 
       <div data-content id="productos">
