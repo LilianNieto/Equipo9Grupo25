@@ -21,8 +21,10 @@ public class TiendaDAO {
 	
 	public boolean Crea_Usuario(TiendaDTO usu) {
 		boolean resul=false;
+		TiendaDTO usuexiste=null;
 		try{
-			
+			usuexiste=Buscar_usuario(usu.getCedula());
+			if(usuexiste==null) {
 			String sql="insert into usuarios values (?,?,?,?,?)";
 			ps = conec.prepareStatement(sql);
 			ps.setInt(1, usu.getCedula());
@@ -32,6 +34,9 @@ public class TiendaDAO {
 			ps.setString(5, usu.getUsuario());
 			
 			resul=ps.executeUpdate()>0;
+			}else {
+				JOptionPane.showMessageDialog(null, "El Usuario ya existe..");
+			}
 			
 		}catch(SQLException ex) {
 			

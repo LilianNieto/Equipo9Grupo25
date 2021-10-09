@@ -13,8 +13,10 @@
 
 <body onload="menutienda()">
 <%! String usuario="",nombre="",correo="",cedula="", contra="", estado=""; %>
- 
+
  <div class="menu">
+ <%! String nombrecliente="", correocliente="",telefonocliente="",direccioncliente="",cedulacliente="", estadocliente=""; %>
+ 
      <p data-target="#usuario">Usuario</p>
      <p data-target="#clientes">Clientes</p>
      <p data-target="#proveedores">Proveedores</p>
@@ -42,27 +44,27 @@
       
     	  
     	<p>Cedula: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          <input type="text" name="ceduUsuario" value="<%=cedula%>" <%=estado%> > 
+          <input type="text" name="ceduUsuario" value="<%=cedula%>" <%=estado%> required> 
           <input type="hidden" name="cod" value="<%=cedula%>" >
           
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
           
-          Usuario: &nbsp; &nbsp; &nbsp <input type="text" name="usuar" value="<%=usuario%>"><br/>
+          Usuario: &nbsp; &nbsp; &nbsp <input type="text" name="usuar" value="<%=usuario%>" required><br/>
           
           </p>
 
           <p>
           <br/>
-          Nombre completo: &nbsp <input type="text" name="nombrecompletoUsuario" value="<%=nombre%>">
+          Nombre completo: &nbsp <input type="text" name="nombrecompletoUsuario" value="<%=nombre%>" required>
           
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          Contraseña: <input type="text" name="contrasUsuario" value="<%=contra%>">
+          Contraseña: <input type="text" name="contrasUsuario" value="<%=contra%>" required>
           <br/>
           </p>
 
           <p>
           <br/>
-          Correo Electronico: <input type="text" name="correoElectUsuario" value="<%=correo%>">
+          Correo Electronico: <input type="text" name="correoElectUsuario" value="<%=correo%>"required>
           <br/>
           <br/>
           </p>
@@ -90,7 +92,7 @@
        <br/>
        <legend> Consultar Usuario  </legend>
        <div>
-       <label>Cedula: </label> <input type="text" name="codigo" >
+       <label>Cedula: </label> <input type="text" name="codigo" required>
         <input type="submit" name="botonConsultar" value=" Consultar " >
           &nbsp; &nbsp
         <br/>
@@ -104,24 +106,62 @@
       </div>
 
       <div data-content id="clientes">
+      
+       <form action="Clientes" method="post">
+       <% if(request.getParameter("ceduCliente")!=null){
+    	  
+    	  cedulacliente=request.getParameter("ceduCliente");
+    	  telefonocliente=request.getParameter("telefonCliente");
+    	  nombrecliente=request.getParameter("nombrecompletoCliente");
+    	  correocliente=request.getParameter("correoElectronCliente");
+    	   direccioncliente=request.getParameter("direccionCliente");
+    	  
+    	  estadocliente="disabled";
+    	  
+      }
+     %>
           <p>Cedula: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          <input type="text" name="ceduCliente">
+          <input type="text" name="ceduCliente" value="<%=cedulacliente%>" <%=estadocliente%> required> 
+          <input type="hidden" name="codcliente" value="<%=cedulacliente%>" >
+          
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          Telefono: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp<input type="text" name="telefonCliente"></p>
+          Telefono: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp
+          <input type="text" name="telefonCliente" value="<%=telefonocliente%>" required></p>
 
-          <p>Nombre completo: &nbsp <input type="text" name="nombrecompletoCliente">
+          <p>Nombre completo: &nbsp 
+          <input type="text" name="nombrecompletoCliente" value="<%=nombrecliente%>" required>
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          Correo Electronico: <input type="text" name="correoElectronCliente"></p>
+          Correo Electronico: <input type="text" name="correoElectronCliente" value="<%=correocliente%>" required></p>
 
-          <p>Direccion:&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp<input type="text" name="direccionCliente"></p>
+          <p>Direccion:&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp
+          <input type="text" name="direccionCliente" value="<%=direccioncliente%>" required></p>
 
-          <input type="submit" name="botonConsultar" value="Consultar">
+             <br/>
+                <br/>
+          <input type="submit" name="botonCrear" value=" Crear ">
           &nbsp; &nbsp
-          <input type="submit" name="botonCrear" value="Crear">
+          <input type="submit" name="botonActualizar" value=" Actualizar ">
           &nbsp; &nbsp
-          <input type="submit" name="botonActualizar" value="Actualizar">
+          <input type="submit" name="botonBorrar" value=" Borrar ">
+         <br/>
+         <br/>
+         </form>
+     
+     <hr>
+       <form action="Clientes" method="post">
+       <fieldset>
+       <br/>
+       <legend> Consultar Cliente  </legend>
+       <div>
+       <label>Cedula: </label> <input type="text" name="codigo2" required>
+        <input type="submit" name="botonConsultar" value=" Consultar " >
           &nbsp; &nbsp
-          <input type="submit" name="botonBorrar" value="Borrar">
+        <br/>
+        </div>
+        <br/>
+        </fieldset>
+        </form>
+          
       </div>
 
       <div data-content id="proveedores">
