@@ -60,7 +60,7 @@
           Nombre completo: &nbsp <input type="text" name="nombrecompletoUsuario" value="<%=nombre%>" required>
           
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-          Contraseña: <input type="text" name="contrasUsuario" value="<%=contra%>" required>
+          Contrase&ntilde;a: <input type="text" name="contrasUsuario" value="<%=contra%>" required>
           <br/>
           </p>
 
