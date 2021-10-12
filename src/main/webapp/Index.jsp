@@ -12,7 +12,7 @@
 <h1 style="color:white">Bienvenidos a la Tienda Generia</h1>
 <form action="Login" method="post">
 <div style="color:white"><font size=5><label> Usuario: </label><input type="text" name="usuario"></font></div>
-<div style="color:white"><font size=5><label> Contraseña: </label><input type="password" name="clave"></font></div>
+<div style="color:white"><font size=5><label> Contrase&ntilde;a: </label><input type="password" name="clave"></font></div>
 <div><input type="submit" name="enviar" value="Aceptar">
 
 <input type="button" name="enviar" value="Cancelar">
