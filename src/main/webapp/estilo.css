@@ -19,11 +19,11 @@ body {
     margin-top: 100px;
 }
 
-.lbl-menu{
+.menu{
     background: #234;
 }
 
-.lbl-menu label{
+.menu label{
     display: inline-block;
     padding: 20px;
     color:#fff;
@@ -31,7 +31,7 @@ body {
     transition: all 400ms ease;
 }
 
-.lbl-menu label:hover{
+.menu label:hover{
     background: #28435d;
 }
 
@@ -51,16 +51,16 @@ body {
     padding-bottom: 40px;
 }
 
-#radio1,#radio2,#radio3,#radio4,#radio5,#radio6{
+#usuario,#clientes,#proveedores,#productos,#ventas,#reportes{
     display: none;
 }
 
-#radio1:checked ~ .tab1,
-#radio2:checked ~ .tab2,
-#radio3:checked ~ .tab3,
-#radio4:checked ~ .tab4,
-#radio5:checked ~ .tab5,
-#radio6:checked ~ .tab6{
+#usuario:checked ~ .tab1,
+#clientes:checked ~ .tab2,
+#proveedores:checked ~ .tab3,
+#productos:checked ~ .tab4,
+#ventas:checked ~ .tab5,
+#reportes:checked ~ .tab6{
     opacity: 1;
     visibility: visible;
     transform: scale(1);
