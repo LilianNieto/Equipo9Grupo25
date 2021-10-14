@@ -5,7 +5,6 @@
 <html>
 <head>
 
-  <meta charset="UTF-8">
   <title>Tienda Generica</title>
   <link rel="stylesheet" href="./estilo.css">
   <script src="./script.js" defer></script>
@@ -14,24 +13,23 @@
 
 <body onload="menutienda()">
 
-<div class="container">
  <div class="menu">
  <%! String usuario="",nombre="",correo="",cedula="", contra="", estado=""; %>
  <%! String nombrecliente="", correocliente="",telefonocliente="",direccioncliente="",cedulacliente="", estadocliente=""; %>
  <%! String nit="", ciudadproveedor="", direccionproveedor="", nombreproveedor="", telefonoproveedor=""; %>
- 
-     <label for="#usuario">Usuario</label>
-     <label for="#clientes">Clientes</label>
-     <label for="#proveedores">Proveedores</label>
-     <label for="#productos">Productos</label>
-     <label for="#ventas">Ventas</label>
-     <label for="#reportes">Reportes</label>
+     
+     <p data-target="#usuario">Usuario</p>
+     <p data-target="#clientes">Clientes</p>
+     <p data-target="#proveedores">Proveedores</p>
+     <p data-target="#productos">Productos</p>
+     <p data-target="#ventas">Ventas</p>
+     <p data-target="#reportes">Reportes</p>
 	 
   </div>
 
   <div class="content">
      
-
+      <div data-content id="usuario">
       <form action="Usuarios" method="post">
        <% if(request.getParameter("ceduUsuario")!=null){
     	  
@@ -44,9 +42,7 @@
     	  
       }
   %>
-      <input type="radio" name="radio" id="#usuario" checked>
-      <div class="tab1">
-    	  
+	      
     	<p>Cedula: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
           <input type="text" name="ceduUsuario" value="<%=cedula%>" <%=estado%> required> 
           <input type="hidden" name="cod" value="<%=cedula%>" >
@@ -109,7 +105,8 @@
           
       </div>
 
-      
+      <div data-content id="clientes">
+	      
        <form action="Clientes" method="post">
        <% if(request.getParameter("ceduCliente")!=null){
     	  
@@ -124,8 +121,6 @@
       }
      %>
 	       
-       <input type="radio" name="radio" id="#clientes">
-       <div class="tab2">
           <p>Cedula: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
           <input type="text" name="ceduCliente" value="<%=cedulacliente%>" <%=estadocliente%> required> 
           <input type="hidden" name="codcliente" value="<%=cedulacliente%>" >
@@ -170,8 +165,7 @@
           
       </div>
 
-
-      
+      <div data-content id="proveedores">
        <form action="Proveedores" method="post">
        <% if(request.getParameter("nitProveedor")!=null){
     	  
@@ -184,10 +178,7 @@
     	  
       }
   %>
-	       
-      <input type="radio" name="radio" id="#proveedores">
-      <div class="tab4">
-  
+	  
           <p>NIT: &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
           <input type="text" name="nitProveedor" value="<%=nit%>"  required>
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
@@ -228,9 +219,9 @@
              <input type="submit" name="botonCargar" value="Cargar">
           </p>
       </div> 
-
-      <input type="radio" name="radio" id="#ventas">
-      <div class="tab5">
+	      
+	      
+       <div data-content id="ventas">
         
           <p>Cedula:&nbsp<input type="text" size = "10" name="ceduVenta">
           <input type="submit" name="botonConsultar1" value="Consultar">
@@ -258,11 +249,12 @@
        
       </div>
 
-       <input type="radio" name="radio" id="#reportes">
-       <div class="tab6">
+       <div data-content id="reportes">
+         <center>
              <p><input type="submit" size = "50" name="botonListUsuario" value="Listado de usuarios"></p>
              <p><input type="submit" size = "50" name="botonListClient" value="Listado de clientes"></p>
              <p><input type="submit"  name="botonVentaClient" value="Ventas por cliente"></p>
+          </center>
       </div>   
      
   </div>
