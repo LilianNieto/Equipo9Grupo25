@@ -6,18 +6,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Tienda Generica</title>
+<link rel="stylesheet" href="estiloLogin.css">
 </head>
-<body background="tom-brunberg-D4ZtZX1UeAI-unsplash.jpg">
-<center>
-<h1 style="color:white">Bienvenidos a la Tienda Generia</h1>
+<section class="form-login">
+<h5>Bienvenidos a la Tienda Generia</h5>
 <form action="Login" method="post">
-<div style="color:white"><font size=5><label> Usuario: </label><input type="text" name="usuario"></font></div>
-<div style="color:white"><font size=5><label> Contrase&ntilde;a: </label><input type="password" name="clave"></font></div>
-<div><input type="submit" name="enviar" value="Aceptar">
-
-<input type="button" name="enviar" value="Cancelar">
-</center>
+<div>
+<label>Usuario: </label><input class="controls" type="text" name="usuario">
 </div>
+<div>
+<label>Contrase&ntilde;a: </label><input class="controls" type="password" name="clave">
+</div>
+<div>
+<input class="buttons" type="submit" name="enviar" value="Aceptar">
+<input class="buttons" type="button" name="enviar" value="Cancelar">
+</div>
+</section>
 </form>
 
 </body>
