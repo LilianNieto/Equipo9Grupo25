@@ -16,7 +16,7 @@ body {
 
 .menu {
      display: flex;
-     background: #234;
+     background: #5cf35c;
 }
 
 
@@ -30,7 +30,7 @@ body {
 }
 
 .menu p:hover{
-     background:#28435d;
+     background:#48e448;
 }
 
 .content {
