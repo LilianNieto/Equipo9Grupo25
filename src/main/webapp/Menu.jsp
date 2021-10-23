@@ -257,11 +257,13 @@
           </center>
       </div>   
      
-  </div>
+  
 
-	<%!String codigo_producto = "", nitproveedor = "", nombre_producto = "";
+	<div data-content id="Productos">
+
+		<%!String codigo_producto = "", nitproveedor = "", nombre_producto = "";
 	int Ivacompra = 1, precio_compra = 1, precio_venta = 1;%>
-	<%
+		<%
 	if (request.getParameter("codigo_producto") != null) {
 		nitproveedor = request.getParameter("nitproveedor");
 		nombre_producto = request.getParameter("nombre_producto");
@@ -272,67 +274,69 @@
 		estado = "disabled";
 	}
 	%>
-	<h1>Modulo Productos</h1>
-	<form action="productos" method="post">
-		<div>
-			<label>Codigo Producto: </label><input type="text"
-				name="codigo_producto" value="<%=codigo_producto%>" <%=estado%>
-				required="required">
-		</div>
-		<div>
-			<input type="hidden" name="cod" value="<%=codigo_producto%>">
-		</div>
-		<div>
-			<label>Nit Proveedor: </label><input type="text" name="Nit"
-				value="<%=nitproveedor%>" required>
-		</div>
-		<div>
-			<label>Nombre Producto: </label><input type="text" name="NomProducto"
-				value="<%=nombre_producto%>" required>
-		</div>
-		<div>
-			<label>Iva compra: </label><input type="number" name="IvaComp"
-				value="<%=Ivacompra%>">
-		</div>
-		<div>
-			<label>Precio Compra: </label><input type="number" name="PrecioCom"
-				value="<%=precio_compra%>">
-		</div>
-		<div>
-			<label>Precio Venta: </label><input type="number" name="PrecioVenta"
-				value="<%=precio_venta%>">
-		</div>
-		<div>
-			<input type="submit" name="Insertar" value="Registrar"> <input
-				type="submit" name="Actualizar" value="Actualizar"> <input
-				type="submit" name="Eliminar" value="Eliminar"> <input
-				type="submit" name="Borrar" value="Borrar">
-		</div>
-	</form>
-	<hr>
-	<form action="producto" method="post">
-		<fieldset>
-			<legend>Consultar: </legend>
-		</fieldset>
-		<div>
-			<label>Codigo_producto: </label><input type="text" name="Codigo">
-			<input type="submit" name="consultar" value="Consultar">
-		</div>
-	</form>
-	<%
+		<h1>Modulo Productos</h1>
+		<form action="productos" method="post">
+			<div>
+				<label>Codigo Producto: </label><input type="text"
+					name="codigo_producto" value="<%=codigo_producto%>" <%=estado%>
+					required="required">
+			</div>
+			<div>
+				<input type="hidden" name="cod" value="<%=codigo_producto%>">
+			</div>
+			<div>
+				<label>Nit Proveedor: </label><input type="text" name="Nit"
+					value="<%=nitproveedor%>" required>
+			</div>
+			<div>
+				<label>Nombre Producto: </label><input type="text"
+					name="NomProducto" value="<%=nombre_producto%>" required>
+			</div>
+			<div>
+				<label>Iva compra: </label><input type="number" name="IvaComp"
+					value="<%=Ivacompra%>">
+			</div>
+			<div>
+				<label>Precio Compra: </label><input type="number" name="PrecioCom"
+					value="<%=precio_compra%>">
+			</div>
+			<div>
+				<label>Precio Venta: </label><input type="number" name="PrecioVenta"
+					value="<%=precio_venta%>">
+			</div>
+			<div>
+				<input type="submit" name="Insertar" value="Registrar"> <input
+					type="submit" name="Actualizar" value="Actualizar"> <input
+					type="submit" name="Eliminar" value="Eliminar"> <input
+					type="submit" name="Borrar" value="Borrar">
+			</div>
+		</form>
+		<hr>
+		<form action="producto" method="post">
+			<fieldset>
+				<legend>Consultar: </legend>
+			</fieldset>
+			<div>
+				<label>Codigo_producto: </label><input type="text" name="Codigo">
+				<input type="submit" name="consultar" value="Consultar">
+			</div>
+		</form>
+		<%
 	if (request.getParameter("men") != null) {
 		String mensaje = request.getParameter("men");
 		out.print("<script>alert('" + mensaje + "');</script>");
 	}
 	%>
 
-	<hr>
-	<form action="producto" method="post" enctype="multipart/form-data">
-		<div>
-			<label>Archivo: </label><input type="file" value="Examinar"
-				name="archivo">
-		</div>
-		<input type="submit" value="Cargar Archivo" name="cargar">
-	</form>
+		<hr>
+		<form action="producto" method="post" enctype="multipart/form-data">
+			<div>
+				<label>Archivo: </label><input type="file" value="Examinar"
+					name="archivo">
+			</div>
+			<input type="submit" value="Cargar Archivo" name="cargar">
+		</form>
+	</div>
+ </div>
 </body>
 </html>
