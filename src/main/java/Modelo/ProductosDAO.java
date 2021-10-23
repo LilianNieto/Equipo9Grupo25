@@ -97,7 +97,7 @@ public class ProductosDAO {
 		
 	 boolean result=false;
 	 try {	
-	 String sql="load data infile '"+Ruta+"'into table producto fields terminated by ',' lines terminated by '\r\n';";	
+	 String sql="load data infile '"+Ruta+"'into table producto fields terminated by ';' lines terminated by '\r\n';";	
 	 ps=conec.prepareStatement(sql);
 	 result=ps.executeUpdate()>0;
 	 }catch (SQLException ex) {

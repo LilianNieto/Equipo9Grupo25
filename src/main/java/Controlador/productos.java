@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ import Modelo.ProductosDAO;
  * Servlet implementation class productos
  */
 @WebServlet("/productos")
+@MultipartConfig
 public class productos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -117,10 +119,10 @@ public class productos extends HttpServlet {
 		if (request.getParameter("cargar")!= null){
 			
 			Part archivo= request.getPart("archivo");
-			String Url="C:\\Users\\57313\\eclipse-workspace\\TiendaGenerica1\\src\\main\\webapp\\Documento\\";
+			String Url="C:\\\\Users\\\\57313\\\\eclipse-workspace\\\\TiendaGenerica1\\\\src\\\\main\\\\webapp\\\\Documento\\\\";
 			try {
 				InputStream file = archivo.getInputStream();
-				File copia = new File(Url+"Base_prod.csv");
+				File copia = new File(Url+"Baseprod.csv");
 				FileOutputStream escribir  = new FileOutputStream(copia);
 				int num= file.read();
 				while(num != -1) {
@@ -130,7 +132,7 @@ public class productos extends HttpServlet {
 				escribir.close();
 				file.close();
 				JOptionPane.showMessageDialog(null, "Se Cargo El Archivo Correctamente");
-				if(prodDAO.Cargar_producto(Url+"Documento.csv")) {
+				if(prodDAO.Cargar_producto(Url+"Baseprod.csv")) {
 					response.sendRedirect("producto.jsp?men=Se Inserto Los Productos Corerctamente..");
 					
 				}else {
